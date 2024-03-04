@@ -1,4 +1,4 @@
-# HW27 - Репликация postgres
+# Репликация postgres
 
 ## Развернем 4 виртуалки и установим postgresql 14
 
@@ -153,10 +153,10 @@ subname               | test2_sub
 pid                   | 25256
 relid                 | 
 received_lsn          | 0/1710AD0
-last_msg_send_time    | 2022-04-26 12:23:08.026073+00
-last_msg_receipt_time | 2022-04-26 12:23:09.050664+00
+last_msg_send_time    | 2024-03-04 09:23:08.026073+00
+last_msg_receipt_time | 2024-03-04 09:23:09.050664+00
 latest_end_lsn        | 0/1710AD0
-latest_end_time       | 2022-04-26 12:23:08.026073+00
+latest_end_time       | 2024-03-04 09:23:08.026073+00
 ```
 
 > Мы успешно подписались на публикацию таблицы test2 с db2
@@ -210,10 +210,10 @@ subname               | test1_sub
 pid                   | 25143
 relid                 | 
 received_lsn          | 0/1713B90
-last_msg_send_time    | 2022-04-26 12:24:04.442848+00
-last_msg_receipt_time | 2022-04-26 12:24:03.446681+00
+last_msg_send_time    | 2024-03-04 09:24:04.442848+00
+last_msg_receipt_time | 2024-03-04 09:24:03.446681+00
 latest_end_lsn        | 0/1713B90
-latest_end_time       | 2022-04-26 12:24:04.442848+00
+latest_end_time       | 2024-03-04 09:24:04.442848+00
 ```
 
 > Мы успешно подписались на публикацию таблицы test1 с db1
@@ -278,20 +278,20 @@ subname               | test1_sub_db3
 pid                   | 20559
 relid                 | 
 received_lsn          | 0/1713C00
-last_msg_send_time    | 2022-04-26 12:27:10.533847+00
-last_msg_receipt_time | 2022-04-26 12:27:10.520474+00
+last_msg_send_time    | 2024-03-04 09:27:10.533847+00
+last_msg_receipt_time | 2024-03-04 09:27:10.520474+00
 latest_end_lsn        | 0/1713C00
-latest_end_time       | 2022-04-26 12:27:10.533847+00
+latest_end_time       | 2024-04-26 09:27:10.533847+00
 -[ RECORD 2 ]---------+------------------------------
 subid                 | 16392
 subname               | test2_sub_db3
 pid                   | 20561
 relid                 | 
 received_lsn          | 0/1713BB0
-last_msg_send_time    | 2022-04-26 12:27:15.147113+00
-last_msg_receipt_time | 2022-04-26 12:27:16.03725+00
+last_msg_send_time    | 2024-03-04 09:27:15.147113+00
+last_msg_receipt_time | 2024-03-04 09:27:16.03725+00
 latest_end_lsn        | 0/1713BB0
-latest_end_time       | 2022-04-26 12:27:15.147113+00
+latest_end_time       | 2024-03-04 09:27:15.147113+00
 ```
 
 - сделаем выборку
@@ -328,7 +328,7 @@ application_name | test1_sub
 client_addr      | 192.168.56.12
 client_hostname  | 
 client_port      | 48296
-backend_start    | 2022-04-26 12:24:04.399405+00
+backend_start    | 2024-03-04 09:24:04.399405+00
 backend_xmin     | 
 state            | streaming
 sent_lsn         | 0/1713C00
@@ -340,7 +340,7 @@ flush_lag        |
 replay_lag       | 
 sync_priority    | 0
 sync_state       | async
-reply_time       | 2022-04-26 12:27:59.72022+00
+reply_time       | 2024-03-04 09:27:59.72022+00
 -[ RECORD 2 ]----+------------------------------
 pid              | 25282
 usesysid         | 10
@@ -349,7 +349,7 @@ application_name | test1_sub_db3
 client_addr      | 192.168.56.13
 client_hostname  | 
 client_port      | 40994
-backend_start    | 2022-04-26 12:27:10.485389+00
+backend_start    | 2024-03-04 09:27:10.485389+00
 backend_xmin     | 
 state            | streaming
 sent_lsn         | 0/1713C00
@@ -361,7 +361,7 @@ flush_lag        |
 replay_lag       | 
 sync_priority    | 0
 sync_state       | async
-reply_time       | 2022-04-26 12:28:00.637687+00
+reply_time       | 2024-03-04 09:28:00.637687+00
 ```
 
 - на db1 посмотрим информацию о слотах репликации
@@ -414,7 +414,7 @@ application_name | test2_sub
 client_addr      | 192.168.56.11
 client_hostname  | 
 client_port      | 54502
-backend_start    | 2022-04-26 12:21:45.940604+00
+backend_start    | 2024-03-04 09:21:45.940604+00
 backend_xmin     | 
 state            | streaming
 sent_lsn         | 0/1713BB0
@@ -426,7 +426,7 @@ flush_lag        |
 replay_lag       | 
 sync_priority    | 0
 sync_state       | async
-reply_time       | 2022-04-26 12:29:06.24142+00
+reply_time       | 2024-03-04 09:29:06.24142+00
 -[ RECORD 2 ]----+------------------------------
 pid              | 25182
 usesysid         | 10
@@ -435,7 +435,7 @@ application_name | test2_sub_db3
 client_addr      | 192.168.56.13
 client_hostname  | 
 client_port      | 42246
-backend_start    | 2022-04-26 12:27:15.107497+00
+backend_start    | 2024-03-04 09:27:15.107497+00
 backend_xmin     | 
 state            | streaming
 sent_lsn         | 0/1713BB0
@@ -447,7 +447,7 @@ flush_lag        |
 replay_lag       | 
 sync_priority    | 0
 sync_state       | async
-reply_time       | 2022-04-26 12:29:06.249377+00
+reply_time       | 2024-03-04 09:29:06.249377+00
 ```
 
 - на db2 посмотрим информацию о слотах репликации
@@ -621,7 +621,7 @@ application_name | 14/main
 client_addr      | 192.168.56.14
 client_hostname  | 
 client_port      | 37806
-backend_start    | 2022-04-26 12:46:31.488377+00
+backend_start    | 2024-03-04 09:46:31.488377+00
 backend_xmin     | 
 state            | streaming
 sent_lsn         | 0/70003A0
@@ -633,7 +633,7 @@ flush_lag        |
 replay_lag       | 
 sync_priority    | 1
 sync_state       | sync
-reply_time       | 2022-04-26 12:50:26.519449+00
+reply_time       | 2024-03-04 09:50:26.519449+00
 ```
 
 ```sql
@@ -672,10 +672,10 @@ receive_start_tli     | 1
 written_lsn           | 0/70003A0
 flushed_lsn           | 0/70003A0
 received_tli          | 1
-last_msg_send_time    | 2022-04-26 12:51:16.829706+00
-last_msg_receipt_time | 2022-04-26 12:51:16.551211+00
+last_msg_send_time    | 2024-03-04 09:51:16.829706+00
+last_msg_receipt_time | 2024-03-04 09:51:16.551211+00
 latest_end_lsn        | 0/70003A0
-latest_end_time       | 2022-04-26 12:50:16.743796+00
+latest_end_time       | 2024-03-04 09:50:16.743796+00
 slot_name             | 
 sender_host           | 192.168.56.13
 sender_port           | 5432
